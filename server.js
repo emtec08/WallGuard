@@ -40,6 +40,25 @@ server.post('/',function(request,response){
     module.exports = child;
 });
 
+// handle requests to the server
+server.get('/',function(request,response){
+    console.log("Server access registerd.");
+
+    // trigger classification
+    var exec = require('child_process').exec;
+    var child = exec('java -jar ../jar/server.jar "alcohol trump weed ass fuck"',
+        function (error, stdout, stderr){
+            response.writeHead(200, {'Content-Type': 'text/plain'});
+            response.write(stdout);
+            response.end();
+            if(error !== null){
+                console.log("Error -> "+error);
+            }
+        });
+
+    module.exports = child;
+});
+
 // Create an HTTP service
 //http.createServer(server).listen(8888);
 
