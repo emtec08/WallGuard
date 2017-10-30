@@ -2,9 +2,9 @@
   "name": "wallguard_server",
   "version": "1.0.0",
   "description": "",
-  "main": "js/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node js/server.js"
+    "start": "node server.js"
   },
   "author": "Markus Danz",
   "license": "ISC",
