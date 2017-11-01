@@ -1,4 +1,19 @@
 var express = require('express');
+var server = express();
+
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+
+server.get('/',function(request,response) {
+    response.end("Hello World, this is an OPENSHIFT node js test app...");
+});
+
+server.listen(server_port, server_ip_address, function () {
+    console.log( "Listening on " + server_ip_address + ", port " + server_port )
+});
+
+
+/*var express = require('express');
 var bodyParser = require('body-parser');
 var https = require('https');
 var http = require('http');
@@ -74,4 +89,4 @@ var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
 server.listen(server_port, server_ip_address, function () {
     console.log( "Listening on " + server_ip_address + ", port " + server_port )
-});
+});*/
